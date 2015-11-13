@@ -61,8 +61,11 @@ echo " "
 echo "1) http://businesslibtechsciencebooksfreeaccess.org"
 echo "2) http://scienceengineering.library.scilibgen.org"
 echo "3) http://faith.freeonsciencelibraryguide.com/"
-echo "4) http://croco.freeonsciencelibraryguide.com"
-echo "5) http://open.freeonsciencelibraryguide.com"
+echo "4)* http://croco.freeonsciencelibraryguide.com"
+echo "5)* http://open.freeonsciencelibraryguide.com"
+echo "6)* http://serious.freeonsciencelibraryguide.com"
+echo "7)* http://gen.golibgen.com"
+echo "* means working sites"
 echo -ne "Select what server you want to use: "
 read OPTION
 
@@ -72,10 +75,14 @@ elif [ "$OPTION" -eq "2" ]; then
 	HOST="http://scienceengineering.library.scilibgen.org"
 elif [ "$OPTION" -eq "3" ]; then
 	HOST="http://faith.freeonsciencelibraryguide.com"
-elif [ $"OPTION" -eq "4" ]; then
+elif [ "$OPTION" -eq "4" ]; then
 	HOST="http://croco.freeonsciencelibraryguide.com"
-else
+elif [ "$OPTION" -eq "5" ]; then
 	HOST="http://open.freeonsciencelibraryguide.com"
+elif [ "$OPTION" -eq "6" ]; then
+	HOST="http://serious.freeonsciencelibraryguide.com"
+else 
+	HOST="http://gen.golibgen.com"
 fi
 
 echo " "
@@ -288,7 +295,7 @@ while read bookID; do
 	if [ -n "$TITLE" ]; then
 		AUTHOR=`cat $bookID.html | grep "<strong>" | cut -d ">" -f 4 | cut -d "<" -f 1 | tr -d '\r'`
 		echo "$TITLE $AUTHOR"
-		FILE_TYPE=`cat $bookID.html | grep "hidden0" | perl -pe "s/.*\.//" | cut -d "\"" -f 1 | tr -d '\r'`
+		FILE_TYPE=`cat $bookID.html | grep "hidden0" | perl -pe "s/.*\.//" | cut -d "\"" -f 1 | tr -d '\r' | head -1`
 		echo "Filetype: $FILE_TYPE"
 		FILE_NAME_TMP=$TITLE"_"$AUTHOR"."$FILE_TYPE
 		FILE_LENGTH=${#FILE_NAME_TMP}
