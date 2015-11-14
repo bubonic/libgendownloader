@@ -1,8 +1,7 @@
 #!/bin/bash
 #
-# This program downloads search results from a given query string on 1 of 2 servers:
-# 1.) http://businesslibtechsciencebooksfreeaccess.org  or 
-# 2.) http://scienceengineering.library.scilibgen.org
+# This program downloads search results from a given query string on a #selected servers:
+#
 # which is specified by user input upon execution of the program.
 #
 # The user may then decide to use a proxy file as to not become blacklisted by the servers. Proxyfile should be in the IP:PORT format.
@@ -15,6 +14,7 @@
 # without success (usually due to bad proxies or wrong file size) the program will save the bookID #
 # to /path/to/searchquery/bookIDs.notfound for later processing.
 # 
+# In addition libgendownloader will also create a file called 'lastfile.txt'. This file contains the count of the ID it was currently processing along with the bookID number and the bookID file. This can be used in case you want to exit the script and return to processing the IDs for later.
 # Usage: source libgendownloader.sh searchterm <bookIDfile>
 #
 # Be sure to place a '+' where spaces would normally go in searchterm. 
@@ -61,7 +61,7 @@ echo " "
 echo "1) http://businesslibtechsciencebooksfreeaccess.org"
 echo "2) http://scienceengineering.library.scilibgen.org"
 echo "3) http://faith.freeonsciencelibraryguide.com/"
-echo "4)* http://croco.freeonsciencelibraryguide.com"
+echo "4) http://croco.freeonsciencelibraryguide.com"
 echo "5)* http://open.freeonsciencelibraryguide.com"
 echo "6)* http://serious.freeonsciencelibraryguide.com"
 echo "7)* http://gen.golibgen.com"
