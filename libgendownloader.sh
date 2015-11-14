@@ -14,7 +14,12 @@
 # without success (usually due to bad proxies or wrong file size) the program will save the bookID #
 # to /path/to/searchquery/bookIDs.notfound for later processing.
 # 
-# In addition libgendownloader will also create a file called 'lastfile.txt'. This file contains the count of the ID it was currently processing along with the bookID number and the bookID file. This can be used in case you want to exit the script and return to processing the IDs for later.
+# In addition libgendownloader will also create a file called
+# 'lastfile.txt'. This file contains the count of the ID it was currently
+# processing along with the bookID number and the bookID file. This can
+# be used in case you want to exit the script and return to processing
+# the IDs for later.
+#
 # Usage: source libgendownloader.sh searchterm <bookIDfile>
 #
 # Be sure to place a '+' where spaces would normally go in searchterm. 
